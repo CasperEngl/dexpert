@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\SubscriptionController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +14,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+
+Route::get('/', [PageController::class, 'home'])->name('home');
+
+Route::get('/side/{page}', [PageController::class, 'index'])->name('page');
+
+Route::get('/tilbud', [PageController::class, 'offer'])->name('offer');
+Route::get('/teknik', [PageController::class, 'technique'])->name('technique');
+
+Route::prefix('medlemskab')->group(function () {
+    Route::get('/', [SubscriptionController::class, 'index'])->name('subscription.index');
+    Route::post('/', [SubscriptionController::class, 'store'])->name('subscription.store');
+    Route::post('/afbestil', [SubscriptionController::class, 'unsubscribe'])->name('subscription.unsubscribe');
 });

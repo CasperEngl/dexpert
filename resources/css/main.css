@@ -3,6 +3,18 @@
 @import "@fortawesome/fontawesome-free/css/solid.css";
 @import "@fortawesome/fontawesome-free/css/brands.css";
 
+html {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+}
+
+@screen xl {
+  .container {
+    max-width: 1600px;
+  }
+}
+
 #app {
   display: flex;
   min-height: 100vh;
@@ -67,7 +79,7 @@ select.field {
 }
 
 .btn {
-  @apply py-2 px-5 inline-block inline-flex items-center justify-center bg-white rounded text-gray-800 font-bold;
+  @apply py-2 px-5 inline-block inline-flex items-center justify-center bg-white border-2 border-gray-100 rounded text-gray-800;
 }
 
 .btn:not([disabled]):not(.btn-disabled):hover {
@@ -88,11 +100,11 @@ select.field {
 }
 
 .btn-primary:not([disabled]):not(.btn-disabled) {
-  @apply bg-red-600 text-white;
+  @apply bg-red-600 border-red-600 text-white;
 }
 
 .btn-primary:not([disabled]):not(.btn-disabled):hover {
-  @apply bg-red-700;
+  @apply bg-red-700 border-red-700;
 }
 
 .btn-ghost {
@@ -103,24 +115,38 @@ select.field {
   @apply border-gray-300 bg-white text-black;
 }
 
-.tag {
-  @apply px-5 py-2 inline-block border-2 border-gray-700 bg-gray-600 text-white text-xs uppercase font-bold rounded-full;
-}
-
 .markdown {
+  @apply max-w-4xl leading-normal text-gray-700 font-light;
+
+  &.dark {
+    @apply text-gray-400;
+
+    h1, h2, h3 {
+      @apply text-white;
+    }
+  }
+
+  h1, h2, h3 {
+    @apply text-gray-800 font-normal;
+  }
+
   h1 {
-    @apply mb-3 text-4xl text-gray-900 font-bold leading-normal;
+    @apply mb-3 text-4xl border-b;
   }
 
   h2 {
-    @apply mb-3 text-3xl text-gray-700 font-bold leading-normal;
+    @apply mb-3 text-3xl;
   }
 
   h3 {
-    @apply mb-2 text-2xl text-gray-700 leading-normal;
+    @apply mb-2 text-2xl;
   }
 
   p {
-    @apply mb-2 text-xl text-gray-600 leading-normal;
+    @apply mb-2 text-xl;
+  }
+
+  ul {
+    @apply pl-8 list-disc mb-2 text-xl;
   }
 }

@@ -90,9 +90,9 @@ module.exports = {
       padding: '1rem',
     },
     boxShadow: {
-      default: '0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .15)',
-      md: ' 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .15)',
-      lg: ' 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -2px rgba(0, 0, 0, .15)',
+      default: '0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .10)',
+      md: ' 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .10)',
+      lg: ' 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -2px rgba(0, 0, 0, .10)',
       xl: ' 0 20px 25px -5px rgba(0, 0, 0, .1), 0 10px 10px -5px rgba(0, 0, 0, .15)',
       '2xl': '0 25px 50px -12px rgba(0, 0, 0, .25)',
       '3xl': '0 35px 60px -15px rgba(0, 0, 0, .3)',
@@ -109,13 +109,23 @@ module.exports = {
         row: 'calc(100% + 1.5rem)',
         'row-tight': 'calc(100% + 0.5rem)',
       },
+      height: spacing,
       maxWidth: spacing,
       minWidth: spacing,
       maxHeight: spacing,
       minHeight: spacing,
       screens: {
-        'print': {'raw': 'print'},
-      }
+        print: { raw: 'print' },
+        screens: {
+          xs: '480px',
+          sm: '640px',
+          md: '768px',
+          lg: '1024px',
+          xl: '1280px',
+          '2xl': '1600px',
+          '3xl': '2000px',
+        },
+      },
     },
   },
   variants: {
